@@ -1,4 +1,5 @@
 *.tif*
+tn_*
 tiles
 *.mbtiles
 *.xls*

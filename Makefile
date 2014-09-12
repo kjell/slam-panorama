@@ -20,6 +20,10 @@ tile:
 		fi; \
 	done
 
+thumbnail:
+	vipsthumbnail *.tif --size=500 -o tn_%s.png
+	scp tn_* dx:/apps/cdn/thumbs/
+
 metadata: 341953.xlsx
 	xlsx2csv $< > $@.csv
 
