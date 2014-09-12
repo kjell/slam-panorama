@@ -24,8 +24,9 @@ metadata: 341953.xlsx
 	xlsx2csv $< > $@.csv
 
 share:
-	cp -R * ~/Public/slam-panorama/
+	rsync -avz --exclude='*.mbtiles' --exclude=tiles . ~/Public/slam-panorama
 
 upload_tiles:
-	scp *_*.mbtiles dx:/data/tiles
-	scp pano.mbtiles dx:/data/tiles/slam-mississippi-pano.mbtiles
+	rsync -avz *_*.mbtiles dx:/data/tiles
+	rsync -avz pano.mbtiles dx:/data/tiles/slam-mississippi-pano.mbtiles
+	rsync -avz pano-grid.mbtiles dx:/data/tiles/slam-mississippi-pano-grid.mbtiles
